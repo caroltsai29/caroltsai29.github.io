@@ -11,7 +11,8 @@
         <div class="card">
             <div class="card-body">
                 <h1 class="card-title">Food kcal calculator</h1>
-                <p class="card-text">Given 100g is equals to <input id="txt_100g_kcal" type="number" class="form-control" placeholder="20" style="display: inline-block; width: 100px;"> kcal.
+                <p class="card-text">Given 
+                    <input id="txt_default_g" type="number" class="form-control" placeholder="100" value="100" style="display: inline-block; width: 100px;"> g is equals to <input id="txt_100g_kcal" type="number" class="form-control" placeholder="20" style="display: inline-block; width: 100px;"> kcal.
                     Calculate the kcal for <input id="txt_grams" type="number" class="form-control" placeholder="20" style="display: inline-block; width: 100px;"> g.</p>
                 <div class="card text-white bg-info mb-5">
                     <div class="card-body">
@@ -47,14 +48,16 @@
         const txt_100g_kcal = document.getElementById("txt_100g_kcal")
         const txt_grams = document.getElementById("txt_grams")
         const btn_calculate = document.getElementById("btn_calculate")
+        const txt_default_g = document.getElementById("txt_default_g")
         
 
         btn_calculate.addEventListener("click", () => {
             var kcal_for_100g = txt_100g_kcal.value;
             var grams_value = txt_grams.value;
+            var default_g = txt_default_g.value;
             var result = 0;
 
-            result = (kcal_for_100g * grams_value)/100;
+            result = (kcal_for_100g * grams_value)/default_g;
 
             document.getElementById("result_kcal").innerText = result;
         });
